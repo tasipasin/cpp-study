@@ -9,14 +9,22 @@ using namespace std;
 class Weapon {
 private:
     int ammo_amount;
+    string type;
+    static int ammount_of_weapons;
 public:
-    // Constructor
+    // Default Constructor
     Weapon();
-    Weapon(int ammo_amount);
+    // Determine the default value for weapon type
+    Weapon(int ammo_amount, string type = "");
+    // Copy constructor
+    Weapon(const Weapon& original);
+    ~Weapon();
     void set_ammo(int value);
     int get_ammo();
     bool is_empty();
     void shoot();
+    string get_type();
+    static int get_ammount_of_weapons();
 };
 
 #endif

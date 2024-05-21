@@ -166,5 +166,65 @@ int main() {
         // Never forget to delete a pointer created dynamically after using it
         delete awp;
     }
+
+    cout << endl;
+
+    /** Default Constructor Parameters */
+    {
+        cout << "Default Constructor Parameters" << endl;
+        // Initializing with amount of ammo, but no type
+        Weapon ak{ 30 };
+        cout << "Ammo on AK: " << ak.get_ammo() << endl;
+        cout << "Type of AK: " << ak.get_type() << endl;
+
+        // Initializing with amount of ammo and a type
+        Weapon p250{ 13, "pistol" };
+        cout << "Ammo on P250: " << p250.get_ammo() << endl;
+        cout << "Type of P250: " << p250.get_type() << endl;
+    }
+
+    cout << endl;
+
+    /** Copy constructor */
+    {
+        // Are provided by default by the the compiler (shallow copy)
+        cout << "Copy constructor" << endl;
+        cout << "Default Constructor Parameters" << endl;
+        // Initializing with amount of ammo, but no type
+        Weapon ak1{ 30, "rifle" };
+        cout << "Ammo on AK1: " << ak1.get_ammo() << endl;
+        cout << "Type of AK1: " << ak1.get_type() << endl;
+        Weapon ak2{ ak1 };
+        cout << "Ammo on AK2: " << ak2.get_ammo() << endl;
+        cout << "Type of AK2: " << ak2.get_type() << endl;
+        while (!ak1.is_empty()) {
+            ak1.shoot();
+            cout << "shoot";
+        }
+        cout << endl;
+        cout << "Ammo on AK1: " << ak1.get_ammo() << endl;
+        cout << "Type of AK1: " << ak1.get_type() << endl;
+        cout << "Ammo on AK2: " << ak2.get_ammo() << endl;
+        cout << "Type of AK2: " << ak2.get_type() << endl;
+
+    }
+
+    cout << endl;
+
+    /** Static Class Member. */
+    {
+        // Static member belongs to the class, not the object
+        cout << "Amount of weapons: " << Weapon::get_ammount_of_weapons() << endl;
+        Weapon ak1{ 30, "rifle" };
+        Weapon* m4 = new Weapon();
+        Weapon* p2000 = new Weapon(20);
+        Weapon awp;
+        cout << "Amount of weapons: " << Weapon::get_ammount_of_weapons() << endl;
+        Weapon ak2{ ak1 };
+        cout << "Amount of weapons: " << Weapon::get_ammount_of_weapons() << endl;
+        delete m4;
+        delete p2000;
+        cout << "Amount of weapons: " << Weapon::get_ammount_of_weapons() << endl;
+    }
     return 0;
 }
