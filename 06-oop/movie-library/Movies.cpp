@@ -12,15 +12,19 @@ Movie* Movies::get_movie_by_name(const string* const name) {
     return nullptr;
 }
 
-void Movies::add_movie(const string* name, const string* rating, int timeswatched) {
+void Movies::add_movie(const string* name, const string* rating,
+    int watch_counter) {
+    // Adds a new movie to the collection
+    // when movie not in collection
     if (nullptr == this->get_movie_by_name(name)) {
-        this->movieCollection.push_back(Movie(*name, *rating, timeswatched));
+        this->movieCollection.push_back(Movie(*name, *rating, watch_counter));
         cout << *name << " added" << endl;
     }
 }
 
-void Movies::increment_watch_times(string movieName) {
-    Movie* movie = this->get_movie_by_name(&movieName);
+void Movies::increment_watch_count(const string* const movieName) {
+    // Searh for movie in collection to increment watch count
+    Movie* movie = this->get_movie_by_name(movieName);
     if (movie != nullptr) {
         movie->increment_watch_counter();
     }
@@ -32,8 +36,8 @@ void Movies::increment_watch_times(string movieName) {
 void Movies::display_all_movies() {
     cout << "====================================" << endl;
     for (auto& movie : movieCollection) {
-        cout << movie.get_name() << ", " << movie.get_rating() << ", " << movie.get_watch_counter() << endl;
+        cout << movie.get_name() << ", " << movie.get_rating() << ", "
+            << movie.get_watch_counter() << endl;
     }
     cout << "====================================" << endl;
-
 }
