@@ -2,7 +2,12 @@
 #define _OVERLOAD_H_
 #include<cstring>
 
+using namespace std;
+
 class Overload {
+    friend bool operator==(const Overload& left, const Overload& right);
+    friend ostream& operator<<(ostream& os, const Overload& rhs);
+    friend istream& operator>>(istream& is, Overload& rhs);
 private:
     char* str;
 public:
@@ -44,6 +49,7 @@ public:
     Overload operator+() const;
 
     void display();
+
 };
 
 #endif

@@ -80,3 +80,25 @@ Overload Overload::operator+() const {
 void Overload::display() {
     cout << str << " : " << strlen(str) << endl;
 }
+
+// Not an member function
+
+bool operator==(const Overload& left, const Overload& right) {
+    // Is friend of Overload
+    return std::strcmp(left.str, right.str) == 0;
+}
+
+// Insertion operator
+ostream& operator<<(ostream& os, const Overload& rhs) {
+    os << rhs.str;
+    return os;
+}
+
+// Extaction operator
+istream& operator>>(istream& is, Overload& rhs) {
+    char* buffer = new char[1000];
+    is >> buffer;
+    rhs = Overload{ buffer };
+    delete[] buffer;
+    return is;
+}
