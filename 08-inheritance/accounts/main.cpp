@@ -56,6 +56,7 @@ int main() {
     withdraw(tst_accounts, 50);
     withdraw(tst_accounts, 50);
     withdraw(tst_accounts, 50);
+    withdraw(tst_accounts, 50);
 
     return 0;
 }

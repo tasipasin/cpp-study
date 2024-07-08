@@ -24,6 +24,9 @@ bool Trust_Account::deposit(double amount) {
 }
 
 bool Trust_Account::withdraw(double amount) {
-    this->curr_withdrawal_count++;
-    return Savings_Account::withdraw(amount);
+    if (this->curr_withdrawal_count < Trust_Account::max_withdrawals_per_year) {
+        this->curr_withdrawal_count++;
+        return Savings_Account::withdraw(amount);
+    }
+    return false;
 }
