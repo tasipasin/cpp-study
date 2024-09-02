@@ -4,9 +4,11 @@ Checking_Account::Checking_Account(std::string name, double balance)
     : Account{ name, balance } {
 }
 
-std::ostream& operator<<(std::ostream& os, const Checking_Account& account) {
-    os << "[Checking_Account: " << account.name << ": " << account.balance << ", " << Checking_Account::withdrawal_fee << " withdrawal fee]";
-    return os;
+void Checking_Account::print(std::ostream& os) const {
+    // Defines the precision for float variables
+    os.precision(2);
+    os << std::fixed;
+    os << "[Checking_Account: " << name << ": " << balance << ", " << Checking_Account::withdrawal_fee << " withdrawal fee]";
 }
 
 bool Checking_Account::withdraw(double amount) {

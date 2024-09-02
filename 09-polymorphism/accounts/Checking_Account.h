@@ -4,7 +4,6 @@
 #include "Account.h"
 
 class Checking_Account : public Account {
-    friend std::ostream& operator<<(std::ostream& os, const Checking_Account& account);
 private:
     // Default initializations for the class attributes
     static constexpr const char* def_name = "Unnamed Checking Account";
@@ -19,6 +18,7 @@ public:
     // Inherits the Account::deposit methods
     virtual bool deposit(double amount) override;
     virtual double get_balance() const override;
+    virtual void print(std::ostream& os) const override;
     virtual ~Checking_Account() = default;
 };
 

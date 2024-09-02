@@ -9,10 +9,6 @@
 using namespace std;
 
 int main() {
-    // Defines the precision for float variables
-    cout.precision(2);
-    cout << fixed;
-
     // Savings 
     vector<Account*> sav_accounts;
     sav_accounts.push_back(new Savings_Account());

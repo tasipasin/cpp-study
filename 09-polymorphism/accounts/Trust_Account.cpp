@@ -4,13 +4,15 @@ Trust_Account::Trust_Account(std::string name, double balance)
     : Savings_Account{ name, balance } {
 }
 
-std::ostream& operator<<(std::ostream& os, const Trust_Account& account) {
-    os << "[Trust_Account: " << account.name
-        << ": " << account.balance
-        << ", " << account.curr_withdrawal_count << " of " << Trust_Account::max_withdrawals_per_year << " withdrawals per year made"
+void Trust_Account::print(std::ostream& os) const {
+    // Defines the precision for float variables
+    os.precision(2);
+    os << std::fixed;
+    os << "[Trust_Account: " << name
+        << ": " << balance
+        << ", " << curr_withdrawal_count << " of " << Trust_Account::max_withdrawals_per_year << " withdrawals per year made"
         << ", " << Trust_Account::over_deposit_bonus << " overload deposit bonus"
         << ", " << Trust_Account::over_deposit_value << " over deposit value]";
-    return os;
 }
 
 bool Trust_Account::deposit(double amount) {

@@ -11,7 +11,6 @@
 //
 
 class Savings_Account : public Account {
-    friend std::ostream& operator<<(std::ostream& os, const Savings_Account& account);
 private:
     // Default initializations for the class attributes
     static constexpr const char* def_name = "Unnamed Savings Account";
@@ -24,6 +23,7 @@ public:
     virtual bool deposit(double amount) override;
     virtual bool withdraw(double amount) override;
     virtual double get_balance() const override;
+    virtual void print(std::ostream& os) const override;
     virtual ~Savings_Account() = default;
 };
 

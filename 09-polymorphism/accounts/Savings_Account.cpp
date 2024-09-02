@@ -21,8 +21,10 @@ double Savings_Account::get_balance() const {
     return Account::get_balance();
 }
 
-std::ostream& operator<<(std::ostream& os, const Savings_Account& account) {
-    os << "[Savings_Account: " << account.name << ": " << account.balance << ", " << account.int_rate << "%]";
-    return os;
+void Savings_Account::print(std::ostream& os) const {
+    // Defines the precision for float variables
+    os.precision(2);
+    os << std::fixed;
+    os << "[Savings_Account: " << name << ": " << balance << ", " << int_rate << "%]";
 }
 
