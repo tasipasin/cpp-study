@@ -9,7 +9,7 @@ using namespace std;
 class AbstractClass {
 public:
     // In order to a class be a base abstract class
-    // it must contain at least one piru virtual function
+    // it must contain at least one pure virtual function
     // A Pure virtual function is used to make a class abstract
     // PVF do not provide implementations
     virtual void abstract() = 0;

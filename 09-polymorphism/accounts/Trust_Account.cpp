@@ -30,3 +30,7 @@ bool Trust_Account::withdraw(double amount) {
     }
     return false;
 }
+
+double Trust_Account::get_balance() const {
+    return Savings_Account::get_balance();
+}

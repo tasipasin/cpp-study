@@ -12,3 +12,11 @@ std::ostream& operator<<(std::ostream& os, const Checking_Account& account) {
 bool Checking_Account::withdraw(double amount) {
     return Account::withdraw(amount + Checking_Account::withdrawal_fee);
 }
+
+bool Checking_Account::deposit(double amount) {
+    return Account::deposit(amount);
+}
+
+double Checking_Account::get_balance() const {
+    return Account::get_balance();
+}

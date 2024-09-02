@@ -16,9 +16,11 @@ private:
 public:
     Trust_Account(std::string name = def_name, double balance = def_balance);
     // Overrides the Savings_Account::deposit method
-    bool deposit(double amount);
+    virtual bool deposit(double amount) override;
     // Overrides the Savings_Account::withdraw method
-    bool withdraw(double amount);
+    virtual bool withdraw(double amount) override;
+    virtual double get_balance() const override;
+    virtual ~Trust_Account() = default;
 };
 
 #endif

@@ -15,8 +15,11 @@ protected:
 public:
     Checking_Account(std::string name = def_name, double balance = def_balance);
     // Overrides the Account:: withdraw method
-    bool withdraw(double amount);
+    virtual bool withdraw(double amount) override;
     // Inherits the Account::deposit methods
+    virtual bool deposit(double amount) override;
+    virtual double get_balance() const override;
+    virtual ~Checking_Account() = default;
 };
 
 #endif
